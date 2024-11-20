@@ -7,6 +7,7 @@ const app = express();
 const PORT = 3000;
 
 // Serve static files (e.g., styles, scripts)
+
 app.use(express.static('public'));
 
 const fs = require('fs');

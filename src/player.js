@@ -26,7 +26,7 @@ const VideoPlayer = ({ files_, queryParams }) => {
         className='bg-slate-600 w-auto max-h-[450px]'
       >
         <video
-        className='w-full max-h-[450px]'
+        className='w-full max-h-[450px]' 
           controls
           // onTimeUpdate={handleTimeUpdate}
           src={`${videoUrl}`}
