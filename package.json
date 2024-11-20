@@ -14,7 +14,7 @@
     "start-prod": "node ./dist/day2movies-api.js",
     "build": "npm-run-all --serial clean webpack",
     "webpack": "webpack --config ./.scripts/webpack.config.js",
-    "clean": "rimraf dist"
+    "clean": "rimraf dists"
   },
   "keywords": [],
   "author": "",
