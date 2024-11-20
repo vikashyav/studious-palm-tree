@@ -1,6 +1,6 @@
 {
     "watch": ["src/"],       
     "ext": "js,jsx,json,css",
-    "exec": "npm run build && babel-node server.js"
+    "exec": "npm run build-dev && babel-node server.js"
   }
   

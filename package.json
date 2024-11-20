@@ -5,13 +5,14 @@
   "main": "server.js",
   "scripts": {
     "start-web": "webpack serve --config webpack.config.js",
-    "build": "webpack --mode production",
+    "build-dev": "webpack --mode production",
     "wp-server": "webpack --mode production",
     "start": "nodemon --exec babel-node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon",
     "devs": "concurrently --kill-others \"npm run start\" \"npm run build\"",
     "start-prod": "node ./dist/day2movies-api.js",
+    "build": "npm-run-all --serial clean webpack",
     "webpack": "webpack --config ./.scripts/webpack.config.js",
     "clean": "rimraf dist"
   },
