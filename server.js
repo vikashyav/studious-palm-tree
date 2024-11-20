@@ -3,12 +3,17 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import App from './src/app';
 const stream = require("./server_src/stream-file")
+import cors from "cors";
+
 const app = express();
 const PORT = 3000;
 
 // Serve static files (e.g., styles, scripts)
+app.use(express.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static('web-build'));
+app.use(cors()); // enable cors
 
 const fs = require('fs');
 const path = require('path')
@@ -20,6 +25,11 @@ try {
 } catch (err) {
     console.error('Error reading directory:', err);
 }
+
+app.get("/", ((req, res) => {
+	const data = "This is base {/index} API. Use the respective routing-API to begin...";
+	return res.status(200).send(data);
+}));
 
 // Handle all GET requests
 app.get('/web*', (req, res) => {
