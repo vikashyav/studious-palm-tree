@@ -12,7 +12,7 @@ const PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 // app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static('web-build'));
+app.use(express.static('public'));
 app.use(cors()); // enable cors
 
 const fs = require('fs');
