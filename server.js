@@ -8,15 +8,15 @@ const PORT = 3000;
 
 // Serve static files (e.g., styles, scripts)
 
-app.use(express.static('public'));
+app.use(express.static('web-build'));
 
 const fs = require('fs');
 const path = require('path')
-const folderPath = path.join(__dirname, 'videos');
+const folderPath = path.join("./", 'videos');
 let files = [];
 try {
     files = fs.readdirSync(folderPath);
-    console.log('Files in the folder:', files[1]);
+    console.log('Files in the folder:', files[0]);
 } catch (err) {
     console.error('Error reading directory:', err);
 }

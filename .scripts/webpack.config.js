@@ -39,8 +39,8 @@ module.exports = () => {
 			}),
 			new copy([
 				{
-					from: `../.env`,
-					to: `../dist/.env`,
+					from: `../videos`,
+					to: `../dist/videos`,
 					toType: "file",
 				}
 			]),
