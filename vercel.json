@@ -12,6 +12,10 @@
         {
             "src": "/videos/**/*",
             "use": "@vercel/static"
+        },
+        {
+            "src": "/web-build/**/*",
+            "use": "@vercel/static"
         }
     ],
     "routes": [

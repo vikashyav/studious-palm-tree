@@ -8,6 +8,7 @@ import './index.css'
 
 const files = window.__FILES__ || [];
 const queryParams = window._query_ || {};
+console.log("1. file", files);
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<App />);
@@ -30,4 +31,4 @@ ReactDOM.hydrateRoot(document.getElementById('root'),
         {/* </Router> */}
     </>
 );
-// ReactDOM.hydrate(<React.StrictMode> <App files={files}/> </React.StrictMode>, document.getElementById('root'));
+// ReactDOM.hydrate(<React.StrictMode> <App files={files} queryParams={queryParams}/> </React.StrictMode>, document.getElementById('root'));

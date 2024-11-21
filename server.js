@@ -14,14 +14,14 @@ const PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 // app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static(path.join(__dirname)));  
+app.use(express.static(path.join(__dirname, "web-build")));  
 
 
 // app.use(express.static(path.join(__dirname, "public")));
 app.use(cors()); // enable cors
 
 const folderPath = path.join("./", 'videos');
-let files = [];
+let files;
 try {
     files = fs.readdirSync(folderPath);
     console.log('Files in the folder:', files[0]);
