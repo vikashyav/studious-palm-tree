@@ -10,11 +10,11 @@
             "use": "@vercel/static"
         },
         {
-            "src": "/videos/**/*",
+            "src": "dist/videos/**/*",
             "use": "@vercel/static"
         },
         {
-            "src": "/web-build/**/*",
+            "src": "dist/web-build/**/*",
             "use": "@vercel/static"
         }
     ],
