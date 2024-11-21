@@ -4,19 +4,22 @@ import { renderToString } from 'react-dom/server';
 import App from './src/app';
 const stream = require("./server_src/stream-file")
 import cors from "cors";
+const fs = require('fs');
+const path = require('path')
 
 const app = express();
-const PORT =process.env.PORT || 3000;
+const PORT = 3000;
 
 // Serve static files (e.g., styles, scripts)
 app.use(express.urlencoded({ extended: true }));
 // app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static('/'));
+app.use(express.static(path.join(__dirname)));  
+
+
+// app.use(express.static(path.join(__dirname, "public")));
 app.use(cors()); // enable cors
 
-const fs = require('fs');
-const path = require('path')
 const folderPath = path.join("./", 'videos');
 let files = [];
 try {

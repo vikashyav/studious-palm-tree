@@ -14,7 +14,7 @@
     "start-prod": "node ./dist/day2movies-api.js",
     "build": "npm-run-all --serial clean webpack",
     "webpack": "webpack --config ./.scripts/webpack.config.js",
-    "clean": "rimraf dist",
+    "clean": "rimraf dists",
     "build:file1": "babel src/index.js -o output/file1.js",
     "build:file2": "babel server.js -o output/file2.js",
     "build:all": "npm run build:file1 && npm run build:file2"
