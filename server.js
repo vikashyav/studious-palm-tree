@@ -6,13 +6,13 @@ const stream = require("./server_src/stream-file")
 import cors from "cors";
 
 const app = express();
-const PORT = 3000;
+const PORT =process.env.PORT || 3000;
 
 // Serve static files (e.g., styles, scripts)
 app.use(express.urlencoded({ extended: true }));
 // app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static('web-public'));
+app.use(express.static('/'));
 app.use(cors()); // enable cors
 
 const fs = require('fs');
