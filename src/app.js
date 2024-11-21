@@ -7,7 +7,7 @@ import MediaSelector from './media-selector';
 
 const App = ({ files = [], name, ...restProps}) => {
     // const [files, setFiles]= useState(props?.props?.files||[])
-    console.log(files[0], name, "ppp");
+    console.log(files, "ppp");
     // useEffect(()=>{
     //     alert("hiii")
     // },[])

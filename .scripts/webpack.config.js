@@ -6,11 +6,16 @@ const nodeExternals = require("webpack-node-externals");
 module.exports = () => {
 	return {
 		mode: "production",
-		entry: ["babel-polyfill", path.join(__dirname, "../server.js")],
+		// entry: ["babel-polyfill", path.join(__dirname, "../server.js")],
+		entry: {
+			index: './server.js',
+			'bundled-client': './src/index.js',
+		  },
 		output: {
 			path: path.resolve(__dirname, `../dist`),
 			publicPath: "/",
-			filename: `index.js`,
+			filename: '[name].js',
+			// filename: `index.js`,
 		},
 		target: "node",
 		node: {
@@ -28,6 +33,10 @@ module.exports = () => {
 						loader: 'babel-loader',
 					  }
 				},
+				{
+					test: /\.css$/,
+					use: ['style-loader', 'css-loader', 'postcss-loader'], // Process CSS files
+				  },
 			],
 		},
 		plugins: [
