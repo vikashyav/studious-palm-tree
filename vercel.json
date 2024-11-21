@@ -8,13 +8,20 @@
         {
             "src": "dist/bundled-client.js",
             "use": "@vercel/static"
-          }
-
+        },
+        {
+            "src": "dist/videos/**/*",
+            "use": "@vercel/static"
+        }
     ],
     "routes": [
         {
             "src": "/(.*)",
             "dest": "/dist/index.js"
+        },
+        {
+            "src": "/videos/(.*)",
+            "dest": "/dist/videos/$1"
         }
     ]
   }
