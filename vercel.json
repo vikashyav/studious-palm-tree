@@ -7,7 +7,7 @@
         },
         {
             "src": "dist/bundled-client.js",
-            "use": "@vercel/node"
+            "use": "@vercel/static"
           }
 
     ],
