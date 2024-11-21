@@ -2,9 +2,14 @@
     "version": 2,
     "builds": [
         {
-            "src": "/dist",
+            "src": "/dist/index.js",
             "use": "@vercel/node"
-        }
+        },
+        {
+            "src": "dist/bundled-client.js",
+            "use": "@vercel/node"
+          }
+
     ],
     "routes": [
         {
