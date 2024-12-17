@@ -6,15 +6,15 @@
             "use": "@vercel/node"
         },
         {
-            "src": "dist/bundled-client.js",
+            "src": "/dist/bundled-client.js",
             "use": "@vercel/static"
         },
         {
-            "src": "/videos/**/*",
+            "src": "/videos/*",
             "use": "@vercel/static"
         },
         {
-            "src": "dist/web-build/**/*",
+            "src": "/dist/web-build/*",
             "use": "@vercel/static"
         }
     ],
@@ -23,5 +23,6 @@
             "src": "/(.*)",
             "dest": "/dist/index.js"
         }
-    ]
+    ],
+    "cleanUrls": true
   }
