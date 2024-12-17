@@ -8,7 +8,7 @@
         },
         { "src": "web-build", "use": "@vercel/static-build" },
         {
-            "src": "/dist/bundled-client.js",
+            "src": "/web-build/bundled-client.js",
             "use": "@vercel/static"
         },
         {
