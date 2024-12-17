@@ -18,11 +18,5 @@
             "use": "@vercel/static"
         }
     ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/dist/index.js"
-        }
-    ],
     "cleanUrls": true
   }
