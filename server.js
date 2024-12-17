@@ -14,24 +14,16 @@ const PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 // app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static(path.join(__dirname, "web-build")));  
+app.use(express.static(path.join("./", "web-build")));
 
 
 // app.use(express.static(path.join(__dirname, "public")));
 app.use(cors()); // enable cors
 
-const folderPath = path.join("./", 'videos');
-let files;
-try {
-    files = fs.readdirSync(folderPath);
-    console.log('Files in the folder:', files[0]);
-} catch (err) {
-    console.error('Error reading directory:', err);
-}
 
 app.get("/", ((req, res) => {
-	const data = "This is base {/index} API. Use the respective routing-API to begin...";
-	return res.status(200).send(data);
+    const data = "This is base {/index} API. Use the respective routing-API to begin...";
+    return res.status(200).send(data);
 }));
 
 // Handle all GET requests
@@ -40,8 +32,18 @@ app.get('/web*', (req, res) => {
 
     // Read query parameters
     const currentParams = url.searchParams;
+    const queryParams = Object.fromEntries(currentParams.entries());
+    // const folderPath = path.join("./", 'videos');
+    const folderPath = path.join(queryParams?.folder || 'videos')
+    let files;
+    try {
+        files = fs.readdirSync(folderPath);
+        console.log('Files in the folder:', files[0]);
+    } catch (err) {
+        console.error('Error reading directory:', err);
+    }
 
-    const appString = renderToString(<App files={files} name="vikas" queryParams={Object.fromEntries(currentParams.entries())} />);
+    const appString = renderToString(<App files={files} name="vikas" queryParams={queryParams} />);
     const html = `
         <!DOCTYPE html>
         <html lang="en">
@@ -54,7 +56,7 @@ app.get('/web*', (req, res) => {
             <div id="root">${appString}</div>
              <script>
                 window.__FILES__ = ${JSON.stringify(files)};
-                window._query_ = ${JSON.stringify(Object.fromEntries(currentParams.entries()))};
+                window._query_ = ${JSON.stringify(queryParams)};
             </script>
             <script src="/bundled-client.js" defer></script>
         </body>

@@ -3,9 +3,10 @@ const fs = require('fs');
 const path = require('path');
 // http.createServer
 const server = ((req, res) => {
-    const {filename = 'TERI MERI LADAYI (Full Song) Maninder Buttar feat. Tania _ Akasa _ Arvindr Khaira _ MixSingh _Jugni(240P).mp4'
+    const {filename = 'TERI MERI LADAYI (Full Song) Maninder Buttar feat. Tania _ Akasa _ Arvindr Khaira _ MixSingh _Jugni(240P).mp4',
+      folder=''
     }= req.query;
-  const filePath = path.join('videos', filename);
+  const filePath = path.join(folder||'videos', filename);
   // Wish Rathod-- on Instagram_ __parigomez _tiktokind(MP4).mp4
   //Garry Sandhu - Like U (TERE JAISI)- Manpreet Toor - Official Video Song- Rahul - Fresh Media Records.mp4
   const stat = fs.statSync(filePath);

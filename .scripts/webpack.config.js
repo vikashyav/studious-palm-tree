@@ -52,13 +52,13 @@ module.exports = () => {
 				debug: false,
 				noInfo: false,
 			}),
-			new copy([
-				{
-					from: `../videos`,
-					to: `../dist/videos`,
-					toType: "file",
-				}
-			]),
+			// new copy([
+			// 	{
+			// 		from: `./videos`,
+			// 		to: `./dist/videos`,
+			// 		toType: "file",
+			// 	}
+			// ]),
 		],
 	};
 };

@@ -10,7 +10,7 @@ import React, { useState } from 'react';
 
 const VideoPlayer = ({ files, queryParams }) => {
   const baseUrl = `/stream`;
-  const [videoUrl, setVideoUrl] = useState(`/stream?filename=${queryParams?.filename || files?.[0]}`);
+  const [videoUrl, setVideoUrl] = useState(`/stream?folder=${queryParams?.filename}&filename=${queryParams?.filename || files?.[0]}`);
   const [currentTime, setCurrentTime] = useState(0);
   //   let [searchParams, setSearchParams] = useSearchParams()
   const handleTimeUpdate = (event) => {
@@ -39,7 +39,7 @@ const VideoPlayer = ({ files, queryParams }) => {
             const newUrl = new URL(window.location.href);
             newUrl.searchParams.set("filename", file);
             window.history.pushState({}, '', newUrl.toString());
-            setVideoUrl(`${baseUrl}?filename=${file}`)
+            setVideoUrl(`${baseUrl}?filename=${file}&folder=${queryParams.folder}`)
           }}
             style={{ cursor: "pointer" }}
             // className='text-red-400'
