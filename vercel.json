@@ -22,7 +22,7 @@
 
     ],
   "routes": [
-    { "src": "/web/(.*)", "dest": "/dist/index.js" },
+    { "src": "/web(.*)", "dest": "/dist/index.js" },
     { "src": "/stream/(.*)", "dest": "/dist/index.js" },
     { "src": "/bundled-client.js", "dest": "/web-build/bundled-client.js" }  ]
   }

@@ -34,7 +34,7 @@ app.get('/web*', (req, res) => {
     const currentParams = url.searchParams;
     const queryParams = Object.fromEntries(currentParams.entries());
     // const folderPath = path.join("./", 'videos');
-    const folderPath = path.join(queryParams?.folder || 'videos')
+    const folderPath = path.join(process.cwd(), queryParams?.folder || 'videos')
     let files;
     try {
         files = fs.readdirSync(folderPath);
